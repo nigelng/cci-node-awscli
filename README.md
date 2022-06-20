@@ -2,7 +2,15 @@
 
 These images are based on [CircleCI images](https://hub.docker.com/r/circleci/node/), with added AWS CLI
 
-## Node 14x [`latest` `n14`]
+## Node 16x [`latest` `n16`]
+
+The `n14` tag includes:
+
+- node 16x
+- npm 8.12.2
+- awscli 2
+
+## Node 14x [`n14`]
 
 The `n14` tag includes:
 
@@ -23,7 +31,7 @@ The `n12` tag includes:
 ### Build Image
 
 ```sh
-docker build -t nigelng/cci-node-awscli:<tagname> .
+docker build -f <version>/Dockerfile -t nigelng/cci-node-awscli:<tagname> .
 ```
 
 ### Run Image
@@ -39,7 +47,7 @@ docker run -it nigelng/cci-node-awscli:<tagname> bash
 docker push --all-tags nigelng/cci-node-awscli
 
 # Push particular tag
-docker push --all-tags nigelng/cci-node-awscli:<tagname>
+docker push -t nigelng/cci-node-awscli:<tagname>
 ```
 
 ## CCI Usage
